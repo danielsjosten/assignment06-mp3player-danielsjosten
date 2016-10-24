@@ -76,25 +76,25 @@ public class ViewClass implements ActionListener {
 
 		// Add button open
 		frmDanielsMpPlayer.getContentPane().add(btnOpen);
-		btnOpen.setBounds(12, 81, 97, 25);
+		btnOpen.setBounds(12, 81, 97, 68);
 		btnOpen.setIcon(
 				new ImageIcon(ViewClass.class.getResource("/jaco/mp3/player/plaf/resources/mp3PlayerEject.png")));
 
 		// Add button play
 		frmDanielsMpPlayer.getContentPane().add(btnPlay);
-		btnPlay.setBounds(121, 81, 97, 25);
+		btnPlay.setBounds(121, 81, 97, 68);
 		btnPlay.setIcon(
 				new ImageIcon(ViewClass.class.getResource("/jaco/mp3/player/plaf/resources/mp3PlayerPlay.png")));
 
 		// Add button pause
 		frmDanielsMpPlayer.getContentPane().add(btnPause);
-		btnPause.setBounds(230, 81, 97, 25);
+		btnPause.setBounds(230, 81, 97, 68);
 		btnPause.setIcon(
 				new ImageIcon(ViewClass.class.getResource("/jaco/mp3/player/plaf/resources/mp3PlayerPause.png")));
 
 		// Add button stop
 		frmDanielsMpPlayer.getContentPane().add(btnStop);
-		btnStop.setBounds(339, 81, 97, 25);
+		btnStop.setBounds(339, 81, 103, 68);
 		btnStop.setIcon(
 				new ImageIcon(ViewClass.class.getResource("/jaco/mp3/player/plaf/resources/mp3PlayerStop.png")));
 
