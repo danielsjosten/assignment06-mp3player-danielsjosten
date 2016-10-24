@@ -11,12 +11,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 import jaco.mp3.player.MP3Player;
-import java.awt.SystemColor;
-import java.awt.Color;
-import javax.swing.UIManager;
 
 public class ViewClass implements ActionListener {
 
@@ -68,8 +65,7 @@ public class ViewClass implements ActionListener {
 		frmDanielsMpPlayer.getContentPane().setLayout(null);
 
 		// Setting icon for the program
-		frmDanielsMpPlayer.setIconImage(Toolkit.getDefaultToolkit()
-				.getImage(ViewClass.class.getResource("/jaco/mp3/player/plaf/resources/mp3PlayerPlay.png")));
+		frmDanielsMpPlayer.setIconImage(Toolkit.getDefaultToolkit().getImage(ViewClass.class.getResource("/jaco/mp3/player/plaf/resources/mp3PlayerPlay.png")));
 	}
 
 	public void addComponentsToFrame() {

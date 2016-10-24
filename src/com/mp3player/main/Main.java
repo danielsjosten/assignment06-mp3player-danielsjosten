@@ -6,6 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		MP3Player player = new MP3Player();
+		
 	}
 
 }
