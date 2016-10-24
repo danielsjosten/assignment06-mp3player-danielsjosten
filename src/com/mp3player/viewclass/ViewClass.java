@@ -128,12 +128,17 @@ public class ViewClass implements ActionListener {
 				labelSongPlaying.setText(file.getName());
 				player.addToPlayList(new File(file.getPath()));
 				player.play();
+				
 			}
 		}
 
 		// Add action performed to play song
 		if (e.getSource() == btnPlay) {
-			player.play();
+			if (!player.hasFocus()) {
+				labelSongPlaying.setText("Error! No song loaded");
+			} 
+				player.play();
+			
 		}
 
 		// Add action performed to pause song
@@ -148,9 +153,7 @@ public class ViewClass implements ActionListener {
 			player.stop();
 
 		}
-		
-		
-		
+
 	}
 
 }
