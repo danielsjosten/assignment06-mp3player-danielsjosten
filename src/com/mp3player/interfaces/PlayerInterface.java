@@ -1,8 +1,8 @@
 package com.mp3player.interfaces;
 
 public interface PlayerInterface {
-//	open(); 
-//	play(); 
-//	pause(); 
-//	stop();
+	public void open(); 
+	public void play(); 
+	public void pause(); 
+	public void stop();
 }

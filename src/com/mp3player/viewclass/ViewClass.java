@@ -10,18 +10,23 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import jaco.mp3.player.MP3Player;
+import java.awt.SystemColor;
+import java.awt.Color;
+import javax.swing.UIManager;
 
 public class ViewClass implements ActionListener {
 
 	private JFrame frmDanielsMpPlayer;
 
 	// Instanciating the buttons
-	JButton btnOpen = new JButton("open");
-	JButton btnPlay = new JButton("play");
-	JButton btnPause = new JButton("pause");
-	JButton btnStop = new JButton("stop");
+	JButton btnOpen = new JButton("Open");
+	JButton btnPlay = new JButton("Play");
+	JButton btnPause = new JButton("Pause");
+	JButton btnStop = new JButton("Stop");
 
 	// Instanciating the labels
 	JLabel labelNowPlaying = new JLabel("Now Playing:");
@@ -54,26 +59,21 @@ public class ViewClass implements ActionListener {
 	 */
 	private void createGUI() {
 		frmDanielsMpPlayer = new JFrame();
+		frmDanielsMpPlayer.setBackground(UIManager.getColor("Menu.selectionBackground"));
+		frmDanielsMpPlayer.setResizable(false);
 
 		frmDanielsMpPlayer.setTitle("Daniel's Mp3 Player");
 		frmDanielsMpPlayer.setBounds(100, 100, 460, 225);
 		frmDanielsMpPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmDanielsMpPlayer.getContentPane().setLayout(null);
 
+		// Setting icon for the program
 		frmDanielsMpPlayer.setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(ViewClass.class.getResource("/jaco/mp3/player/plaf/resources/mp3PlayerPlay.png")));
-
-		// btnPlay.addActionListener(new ActionListener() {
-		// public void actionPerformed(ActionEvent arg0) {
-		// new MP3Player(new
-		// File("C:\\Users\\dansj\\Desktop\\jingle-bells-guitar-glenn-jarrett.mp3")).play();
-		//
-		// }
-		// });
-
 	}
 
 	public void addComponentsToFrame() {
+
 		// Add button open
 		frmDanielsMpPlayer.getContentPane().add(btnOpen);
 		btnOpen.setBounds(12, 81, 97, 25);
@@ -121,24 +121,32 @@ public class ViewClass implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// Add action performed to open song
 		if (e.getSource() == btnOpen) {
+
 			int returnVal = fileChooser.showOpenDialog(btnOpen);
 
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fileChooser.getSelectedFile();
-				labelSongPlaying.setText(file.getName());
-				player.addToPlayList(new File(file.getPath()));
-				player.play();
-				
+
+				if (file.getName().contains(".mp3")) {
+					// If a song is playing it's stopped before the new song is
+					// choosen
+					player.stop();
+					// Setting label of the playing song
+					labelSongPlaying.setText(file.getName());
+					// Setting player to the choosen filepath
+					player = new MP3Player(file);
+
+					player.play();
+				} else {
+					JOptionPane.showMessageDialog(null, "Choose vaild .mp3 file!", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+
 			}
 		}
 
 		// Add action performed to play song
 		if (e.getSource() == btnPlay) {
-			if (!player.hasFocus()) {
-				labelSongPlaying.setText("Error! No song loaded");
-			} 
-				player.play();
-			
+			player.play();
 		}
 
 		// Add action performed to pause song
@@ -151,9 +159,7 @@ public class ViewClass implements ActionListener {
 		// Add action performed to stop song
 		if (e.getSource() == btnStop) {
 			player.stop();
-
 		}
+	} // Action performed
 
-	}
-
-}
+} // Class
