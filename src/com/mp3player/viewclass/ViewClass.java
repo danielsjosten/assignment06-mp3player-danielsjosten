@@ -109,13 +109,10 @@ public class ViewClass implements ActionListener {
 	}
 
 	public void addActionListners() {
-		// add action listner to btnOpen
+		// add action listner to the buttons
 		btnOpen.addActionListener(this);
-		// add action listner to btnPlay
 		btnPlay.addActionListener(this);
-		// add action listner to btnPause
 		btnPause.addActionListener(this);
-		// add action listner to btnStop
 		btnStop.addActionListener(this);
 
 	}
@@ -129,7 +126,8 @@ public class ViewClass implements ActionListener {
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fileChooser.getSelectedFile();
 				labelSongPlaying.setText(file.getName());
-
+				player.addToPlayList(new File(file.getPath()));
+				player.play();
 			}
 		}
 
@@ -140,7 +138,9 @@ public class ViewClass implements ActionListener {
 
 		// Add action performed to pause song
 		if (e.getSource() == btnPause) {
-			player.pause();
+			if (player.isEnabled()) {
+				player.pause();
+			}
 		}
 
 		// Add action performed to stop song
