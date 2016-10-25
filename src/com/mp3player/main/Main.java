@@ -1,11 +1,13 @@
 package com.mp3player.main;
 
-import jaco.mp3.player.MP3Player;
+import com.mp3player.otherclasses.ViewClass;
 
 public class Main {
 
 	public static void main(String[] args) {
-		MP3Player player = new MP3Player();
+		ViewClass window = new ViewClass();
+		
+		window.framePlayer.setVisible(true);
 		
 	}
 
