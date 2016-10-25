@@ -35,7 +35,8 @@ public class PlayerMethods implements PlayerInterface{
 				setPlayer(new MP3Player(file));
 				getPlayer().play();
 			} else {
-				JOptionPane.showMessageDialog(null, "Not a valid .mp3 file!", "Error", JOptionPane.ERROR_MESSAGE);
+				//Shows a pop-up window presenting a errormessage if you didnt choose a .mp3-file
+				JOptionPane.showMessageDialog(null, file.getName() + " Is not a valid .mp3 file!", "Critical Error!", JOptionPane.ERROR_MESSAGE);
 			}		
 		}
 		
