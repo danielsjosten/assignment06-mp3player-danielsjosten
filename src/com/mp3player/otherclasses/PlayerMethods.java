@@ -12,9 +12,8 @@ import jaco.mp3.player.MP3Player;
 public class PlayerMethods implements PlayerInterface{
 
 	private MP3Player mp3player = new MP3Player();
-	final JFileChooser fileChooser = new JFileChooser();
-	
 	private String labelSongPlaying = "";
+	final JFileChooser fileChooser = new JFileChooser();
 
 	@Override
 	public void open() {
@@ -34,32 +33,36 @@ public class PlayerMethods implements PlayerInterface{
 			} else {
 				JOptionPane.showMessageDialog(null, "Not a valid .mp3 file!", "Error", JOptionPane.ERROR_MESSAGE);
 			}
-
+		
+//				JFileChooser fileChooser = new JFileChooser();
+//				int returnVal = fileChooser.showOpenDialog(null);
+//				File file = fileChooser.getSelectedFile();
+//				stop();
+//				this.labelSongPlaying = file.getName().toString(); // Setting label of the playing song
+//				setPlayer(new MP3Player(file));
+//				getPlayer().play();
+				
 		}
 		
 	}
 
 	@Override
 	public void play() {
-		if (mp3player.hasFocus()) {
-			mp3player.play();
-		}else{
+		if (labelSongPlaying == "") {
 			open();
-		}
-		
-		
+		}else{
+			mp3player.play();
+		}	
 	}
 
 	@Override
 	public void pause() {
 		mp3player.pause();
-		
 	}
 
 	@Override
 	public void stop() {
 		mp3player.stop();
-		
 	}
 	
 	public String getLabelSongPlaying() {

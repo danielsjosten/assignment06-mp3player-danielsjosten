@@ -32,16 +32,6 @@ public class ViewClass extends JFrame implements ActionListener {
 
 	PlayerMethods pm = new PlayerMethods();
 	
-	/**
-	 * Main
-	 */
-	
-	//Ta bort main sen....!!!!!!!!!!!!!!!!!!!!!!!!!
-//	public static void main(String[] args) {
-//		ViewClass window = new ViewClass();
-//		window.framePlayer.setVisible(true);
-//	}
-	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 	/**
 	 * Create the application.
@@ -128,6 +118,7 @@ public class ViewClass extends JFrame implements ActionListener {
 		// Add action performed to play song
 		if (e.getSource() == btnPlay) {
 			pm.play();
+			labelSongPlaying.setText(pm.getLabelSongPlaying());
 		}
 
 		// Add action performed to pause song
