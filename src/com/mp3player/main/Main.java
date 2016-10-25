@@ -4,6 +4,9 @@ import com.mp3player.otherclasses.ViewClass;
 
 public class Main {
 
+	/**
+	 * Main method
+	 */
 	public static void main(String[] args) {
 		ViewClass window = new ViewClass();
 		

@@ -61,6 +61,9 @@ public class ViewClass extends JFrame implements ActionListener {
 		framePlayer.setIconImage(Toolkit.getDefaultToolkit().getImage(ViewClass.class.getResource("/jaco/mp3/player/plaf/resources/mp3PlayerPlay.png")));
 	}
 
+	/**
+	 * Method for adding the components to the frame
+	 */
 	public void addComponentsToFrame() {
 
 		// Add button open
@@ -96,7 +99,9 @@ public class ViewClass extends JFrame implements ActionListener {
 		labelSongPlaying.setBounds(102, 38, 328, 16);
 
 	}
-
+	/**
+	 * Adding actionlistners to the buttons
+	 */
 	public void addActionListners() {
 		// add action listner to the buttons
 		btnOpen.addActionListener(this);
@@ -106,6 +111,9 @@ public class ViewClass extends JFrame implements ActionListener {
 
 	}
 	
+	/**
+	 * Adding actions performed to each button
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// Add action performed to open song
