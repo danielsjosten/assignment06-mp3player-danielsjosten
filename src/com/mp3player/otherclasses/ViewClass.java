@@ -11,6 +11,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
 
+/**
+* <h1>Daniel's Mp3Player</h1>
+* This is a Mp3Player program that lets you open a mp3-file 
+* from your computer and play the file.
+* <p>
+* You can also pause or stop the playing song.
+* 
+* @author  Daniel Sjösten
+* @version 1.0
+* @since   2016-10-27 
+*/
 public class ViewClass extends JFrame implements ActionListener {
 
 	/**
@@ -54,8 +65,6 @@ public class ViewClass extends JFrame implements ActionListener {
 		framePlayer.setBounds(100, 100, 460, 225);
 		framePlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		framePlayer.getContentPane().setLayout(null);
-		
-		//framePlayer.setVisible(true);
 
 		// Setting icon for the program
 		framePlayer.setIconImage(Toolkit.getDefaultToolkit().getImage(ViewClass.class.getResource("/jaco/mp3/player/plaf/resources/mp3PlayerPlay.png")));
@@ -130,10 +139,10 @@ public class ViewClass extends JFrame implements ActionListener {
 		}
 
 		// Add action performed to pause song
-		if (e.getSource() == btnPause) {
-				pm.pause();
-			}
-	
+		if (e.getSource() == btnPause) {	
+			pm.pause();
+		
+		}
 
 		// Add action performed to stop song
 		if (e.getSource() == btnStop) {
