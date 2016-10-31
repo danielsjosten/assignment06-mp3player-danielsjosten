@@ -64,6 +64,7 @@ public class PlayerMethods implements PlayerInterface {
 			open();
 		} else {
 			mp3player.play();
+			
 
 		}
 	}
